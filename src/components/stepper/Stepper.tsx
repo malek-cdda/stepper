@@ -1,32 +1,42 @@
 import React from "react";
 import { FaStepForward } from "react-icons/fa";
 const Stepper = ({
+  setCurrentStep,
   currentStep,
   numberOfSteps,
   data,
   activeColor,
   noneActiveColor,
+  icon,
+  showStep,
+  showLabel,
 }: any) => {
   const activeColorFnc = (index: any) =>
     currentStep >= index ? activeColor : noneActiveColor;
   // final step check if its true then the line not show in final step
   const isFinalStep = (index: any) => index === numberOfSteps - 1;
-  console.log(data.length - 1 === 5, data.length);
+  const handleColor = (index: any) => {
+    setCurrentStep(index);
+  };
+
   return (
-    <div className="flex justify-center  w-full">
-      <div className="w-1/2 flex    shadow-md px-3 py-2 rounded-md">
+    <div className="flex justify-center flex-col items-center w-full">
+      <div className="w-1/2 flex     px-3 py-2 rounded-md relative">
         {Array.from({ length: numberOfSteps }).map((_, index) => (
           <div
             key={index}
-            className="flex flex-col items-stretch  justify-between w-full">
-            <div className="flex items-center  ">
+            className="flex flex-col items-stretch  justify-between w-full  ">
+            <div className="flex items-center">
               <div
-                className={`p-3   rounded-full flex justify-center items-center  `}
+                onClick={() => handleColor(index)}
+                className={`p-3   rounded-full flex justify-center items-center cursor-pointer `}
                 style={{
                   background: activeColorFnc(index),
                   ...data[index]?.style,
                 }}>
-                {data[index]?.icon ? data[index]?.icon : <Icon />}
+                {icon && (
+                  <>{data[index]?.icon ? data[index]?.icon : <Icon />}</>
+                )}
               </div>
               {isFinalStep(index) ? null : (
                 <div
@@ -37,11 +47,14 @@ const Stepper = ({
                   }}></div>
               )}
             </div>
-            <p className="">
-              {data[index]?.label} {currentStep}
-            </p>
+            {showLabel && <p className="">{data[index]?.label} </p>}
           </div>
         ))}
+        {showStep && (
+          <p className="absolute -bottom-10 capitalize text-lg text-blue-500 font-semibold">
+            step:-{currentStep}
+          </p>
+        )}
       </div>
     </div>
   );
