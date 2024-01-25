@@ -1,32 +1,44 @@
 import React from "react";
 import { FaStepForward } from "react-icons/fa";
-const Stepper = ({ currentStep, numberOfSteps, data, activeColor }: any) => {
+const Stepper = ({
+  currentStep,
+  numberOfSteps,
+  data,
+  activeColor,
+  noneActiveColor,
+}: any) => {
   const activeColorFnc = (index: any) =>
-    currentStep >= index ? activeColor : "black";
+    currentStep >= index ? activeColor : noneActiveColor;
+  // final step check if its true then the line not show in final step
   const isFinalStep = (index: any) => index === numberOfSteps - 1;
+  console.log(data.length - 1 === 5, data.length);
   return (
-    <div>
-      <div className="flex items-center justify-center">
+    <div className="flex justify-center  w-full">
+      <div className="w-1/2 flex    shadow-md px-3 py-2 rounded-md">
         {Array.from({ length: numberOfSteps }).map((_, index) => (
-          <div key={index} className="flex flex-col">
+          <div
+            key={index}
+            className="flex flex-col items-stretch  justify-between w-full">
             <div className="flex items-center  ">
               <div
-                className={`w-6 h-6 rounded-full flex justify-center items-center  `}
-                style={{ background: activeColorFnc(index) }}>
+                className={`p-3   rounded-full flex justify-center items-center  `}
+                style={{
+                  background: activeColorFnc(index),
+                  ...data[index]?.style,
+                }}>
                 {data[index]?.icon ? data[index]?.icon : <Icon />}
               </div>
-
               {isFinalStep(index) ? null : (
                 <div
-                  className={`w-12 h-1   ${activeColorFnc(index)}`}
-                  //   style={data[index].style}
-                  style={{ background: activeColorFnc(index) }}>
-                  sdfs
-                </div>
+                  className={`w-full h-1`}
+                  style={{
+                    ...data[index]?.style,
+                    background: activeColorFnc(index),
+                  }}></div>
               )}
             </div>
-            <p>
-              {currentStep} {data[index]?.label}
+            <p className="">
+              {data[index]?.label} {currentStep}
             </p>
           </div>
         ))}
