@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Stepper:-
 
-## Getting Started
+Stepper is a process where we should move back and forth between step.Now i will try to make a good custom stepper.
 
-First, run the development server:
+## Usage:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+` <StepperComponent
+      data={data}											
+      icon={icon}
+      showStep={showStep}                                                                                                                                
+      description={description} 									
+      showLabel={showLabel}       									
+    />`
+In my stepper you need declare some props, i can explain it in the below:-
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Data: In stepper data must be look like this
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`[{
+      name: "home",
+      icon: <FaStepForward />,
+      description: "first i need to declare step design",
+      label: "label",
+    },] `
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Icon:
 
-## Learn More
+If you want to show icon , you set icon value is true , for this you can see icon in the middle of the stepper circle Look like this,
 
-To learn more about Next.js, take a look at the following resources:
+## ShowStep:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If you want to show step name , you set show step value is true , for this you can see step in the left-bottom of the stepper Look like this,
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Description:
 
-## Deploy on Vercel
+If you want to see description in your data set, you need to true the description state.then you will be see the description
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ShowLabel:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you want to see label in your data set, you need to true the show label state.then you will be see the label..
+
+<..........................................................................................................>
+
+You can also change the active and none active color , you need to only set activeColor = "blue", noneActiveColor = “green”
+
+All are working as props data.. Happy coding❤️
