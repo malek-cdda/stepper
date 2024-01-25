@@ -8,37 +8,37 @@ const Home = () => {
     {
       name: "home",
       icon: <FaStepForward />,
-      description: "first i need to declare step design",
+      description: "First i need to declare step design",
       label: "label",
     },
     {
       name: "home",
       icon: <FaStepForward />,
-      description: "then i need to declare current step",
+      description: "Then I need to declare current step",
       label: "label",
     },
     {
       name: "home",
       icon: <FaStepForward />,
-      description: "then i need to declare current step and number of steps",
+      description: "Then I need to declare current step and number of steps",
       label: "label",
     },
     {
       name: "home",
       icon: <FaStepForward />,
-      description: "i remove previous button when it in inital step",
+      description: "I remove previous button when it in initial step",
       label: "label",
     },
     {
       name: "home",
       icon: <FaStepForward />,
-      description: "i remove next button when it in final step",
+      description: "I remove next button when it in final step",
       label: "label",
     },
     {
       name: "home",
       icon: <FaStepForward />,
-      description: "finaly i done it ,, i think its complete",
+      description: "Finally i done it,I think its complete",
       label: "label",
     },
   ];
