@@ -42,7 +42,6 @@ const Stepper = ({
                 <div
                   className={`w-full h-1`}
                   style={{
-                    ...data[index]?.style,
                     background: activeColorFnc(index),
                   }}></div>
               )}

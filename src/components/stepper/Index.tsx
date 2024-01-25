@@ -7,6 +7,8 @@ export default function StepperComponent({
   showStep,
   description,
   showLabel,
+  activeColor = "blue",
+  noneActiveColor = "gray",
 }: any) {
   // fakedbd json i create
 
@@ -17,9 +19,6 @@ export default function StepperComponent({
     setCurrentStep((prev) => (prev === data.length - 1 ? prev : prev + 1));
   const goToPreviousStep = () =>
     setCurrentStep((prev) => (prev <= 0 ? prev : prev - 1));
-  // then i declare active circle color and none active circle color
-  let activeColor = "blue";
-  let noneActiveColor = "gray";
   return (
     <div className="w-full">
       <h1 className="text-2xl text-center my-5">Stepper component</h1>
