@@ -61,14 +61,16 @@ const Home = () => {
     },
   ];
   const [icon, setIcon] = useState(true);
-  const [showStep, setShowStep] = useState(false);
-  const [description, setDescription] = useState(false);
+  const [showStep, setShowStep] = useState(true);
+  const [description, setDescription] = useState(true);
+  const [showLabel, setShowLabel] = useState(true);
   return (
     <StepperComponent
       data={data}
       icon={icon}
       showStep={showStep}
       description={description}
+      showLabel={showLabel}
     />
   );
 };
